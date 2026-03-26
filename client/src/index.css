@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+/* --- BASE STYLES --- */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* --- BULLETPROOF THEME COLORS FOR LESSON CONTENT --- */
+
+/* LIGHT MODE (Default) */
+.prose-container {
+  color: #1f2937 !important; /* text-gray-800 */
+}
+.prose-container p, 
+.prose-container ul, 
+.prose-container ol, 
+.prose-container li {
+  color: #374151 !important; /* text-gray-700 */
+}
+.prose-container h1, 
+.prose-container h2, 
+.prose-container h3, 
+.prose-container h4, 
+.prose-container strong {
+  color: #111827 !important; /* text-gray-900 */
+}
+
+/* DARK MODE */
+.dark .prose-container {
+  color: #e5e7eb !important; /* text-gray-200 */
+}
+.dark .prose-container p, 
+.dark .prose-container ul, 
+.dark .prose-container ol, 
+.dark .prose-container li {
+  color: #d1d5db !important; /* text-gray-300 */
+}
+.dark .prose-container h1, 
+.dark .prose-container h2, 
+.dark .prose-container h3, 
+.dark .prose-container h4, 
+.dark .prose-container strong {
+  color: #ffffff !important; /* white */
+}
+
+/* --- THE PRINT FIX --- */
+@media print {
+  /* 1. Kill the scroll lock so the printer can see all pages */
+  html, body, #root, .h-screen, main, .overflow-y-auto {
+    height: auto !important;
+    overflow: visible !important;
+    position: static !important;
+  }
+
+  /* 2. Hide sidebar and interactive elements */
+  aside, button, .print\:hidden {
+    display: none !important;
+  }
+
+  /* 3. Force clean pitch-black text on white backgrounds */
+  *,
+  .prose-container,
+  .prose-container p,
+  .prose-container ul,
+  .prose-container ol,
+  .prose-container li,
+  .prose-container h1,
+  .prose-container h2,
+  .prose-container h3,
+  .prose-container h4,
+  .prose-container strong,
+  .dark .prose-container,
+  .dark .prose-container p,
+  .dark .prose-container ul,
+  .dark .prose-container ol,
+  .dark .prose-container li,
+  .dark .prose-container h1,
+  .dark .prose-container h2,
+  .dark .prose-container h3,
+  .dark .prose-container h4,
+  .dark .prose-container strong {
+    color: #000000 !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+  }
+
+  /* 4. Prevent elements from being chopped in half across pages */
+  h1, h2, h3 { 
+    page-break-after: avoid; 
+  }
+  p, div, li { 
+    page-break-inside: avoid; 
+  }
+}

@@ -11,7 +11,7 @@ connectDB();
 
 const app = express();
 
-app.use(cors());
+app.use(cors({ origin: '*' })); // You can lock this down to your Vercel URL later
 app.use(express.json());
 
 // Mount Routes

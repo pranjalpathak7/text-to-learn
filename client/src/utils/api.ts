@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 export const apiClient = axios.create({
-  baseURL: 'https://text-to-learn-api.onrender.com',
+  baseURL: 'https://text-to-learn-api-szwg.onrender.com',
   headers: {
     'Content-Type': 'application/json',
   },
